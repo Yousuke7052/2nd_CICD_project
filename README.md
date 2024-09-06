@@ -1,7 +1,18 @@
 # 2nd_CICD_project
 Practice CICD project by myself
 
-設計了一個適用於無經驗，並從0開始搭建的CICD單人小型實踐項目，並考慮了低花費，同時也盡量避免再上傳GitHub時需要敏感信息
-的操作，對於不會前後端語言的人也盡可能友好，提供每一個階段每一個動作要輸入的指令或配置文件代碼等
+設計了一個適用於無經驗，並從0開始搭建的CICD單人小型實踐項目，並考慮了低成本，同時也盡量避免再上傳GitHub時需要敏感信息
+的操作，對於不會前後端語言與YAML文件配置等等的人也盡可能友好，提供每一個階段每一個動作要輸入的指令或配置文件代碼等
 
 項目目標：配置阿里云DevOps平台上的CI/CD流水线，自动化构建文本文件项目。当有新的提交时，流水线将自动运行一个脚本来打印出文件内容。
+
+若使用阿里云云效DevOps，無須.github/workflows下的yml文件即可關聯至DevOps(透過webhook)
+
+創建流水線源->開啟代碼源觸發->WebHook填入URL(在觸發設置內有，選擇流水線源不選通用)
+觸發設置->WebHook打勾
+GitHub目標倉庫下->Setting->左邊欄位找Webhooks->Add webhook->Payload URL為剛剛的WebHook與選擇application/json
+到代碼倉庫頁面->選擇目標項目倉庫如:2nd_CICD_project->設置->Webhooks->新建並把URL跟Token填入
+此為代碼源觸發流程
+同時，依據創建的流水線生成的webhookURL來控制代碼關聯/對應哪一條流水線
+
+無須工作流文件只需關聯webhook，剩下就是代碼提交測試，將自動執行流水線
