@@ -1,0 +1,62 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # 更改为您的主分支名称
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest  # 指定运行环境
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          echo "Setup your environment here"
+          # 例如安装依赖包、配置环境变量等
+
+      - name: Give script execute permission
+        run: chmod +x build.sh
+
+      - name: Build and Test
+        run: |
+          # 这里是您的构建和测试命令
+          sh build.sh
+
+      - name: Deploy application
+        if: success()
+        run: |
+          # 这里是部署应用的命令
+          echo "Deploy the application to your target environment"
+          # 可以使用ssh、scp等方式部署
+    ```
+
+### 解释
+
+- **`name`**：定义工作流的名称。
+- **`on`**：定义触发器，这里指定了当向`main`分支提交代码时触发工作流。
+- **`jobs`**：定义工作流中的任务。
+  - **`build`**：定义构建任务。
+  - **`runs-on`**：指定任务运行的操作系统环境（这里是Ubuntu）。
+  - **`steps`**：定义任务中的各个步骤。
+    - **`Checkout Repository`**：使用GitHub Actions官方提供的`actions/checkout`动作来克隆仓库。
+    - **`Set up environment`**：设置环境，例如安装依赖包、配置环境变量等。
+    - **`Give script execute permission`**：给予构建脚本执行权限。
+    - **`Build and Test`**：执行构建和测试命令。
+    - **`Deploy application`**：部署应用，这里只是一个示例命令。
+
+### 如何验证
+
+1. **提交文件**：
+   - 将`.github/workflows/ci-cd-pipeline.yml`文件提交到仓库。
+
+2. **触发构建**：
+   - 提交代码到`main`分支。
+   - 在GitHub仓库的“Actions”标签页中查看构建状态。
+
+通过上述步骤，您可以在GitHub Actions中设置一个CI/CD流水线，该流水线会在您提交代码到`main`分支时自动触发构建和部署流程。
+
+如果还有其他问题或需要进一步的帮助，请随时告知。
