@@ -1,3 +1,8 @@
-Hello World!!
-hi world!
-test again!
+     ------Hello, world!------
+     >>Instruction completed<<
+     .------------------------
+     |  .---------------------
+     |  |  .------------------
+     |  |  |  .---------------
+     |  |  |  |               
+Hello, this is an updated message!
