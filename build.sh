@@ -6,3 +6,6 @@ cat hello.txt
 cat hello.txt
 cat hello.txt
 cat hello.txt
+echo hihihi thisworld!!!
+cat hello.txt
+cat hello.txt
