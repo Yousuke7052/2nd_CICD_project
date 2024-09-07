@@ -1,0 +1,8 @@
+Personal access tokens make:
+
+1.首頁右上角自己帳號頭像
+2.settings
+3.Develpoer settings
+4.Personal access tokens
+5.tokens (classic)
+6.創建tokens
